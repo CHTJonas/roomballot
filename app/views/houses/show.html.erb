@@ -1,0 +1,56 @@
+<% content_for :title, @house.name %>
+<div class="row">
+  <div class="col-md-4">
+    <div id="gallery">
+      <div id="large">
+        <div class="thumbnail">
+          <a href='https://media.fitzjcr.com/housing/architects-plans/87_oxford_road_ground_floor.jpg' id="gallery-link">
+            <img id="gallery-large" src="https://media.fitzjcr.com/housing/architects-plans/87_oxford_road_ground_floor.jpg" title="Ground floor plans for 87 Oxford Road" style="width: 100%;"/>
+            <div id="gallery-caption" class="caption">
+              <p>Ground floor plans for 87 Oxford Road</p>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div id="smalls" class='ballot-smalls'>
+        <a href="https://media.fitzjcr.com/housing/architects-plans/87_oxford_road_ground_floor.jpg">
+          <img class="ballot-gallery" src="https://media.fitzjcr.com/housing/architects-plans/87_oxford_road_ground_floor.jpg" title="Ground floor plans for 87 Oxford Road" width=100 />
+        </a>
+        <a href="https://media.fitzjcr.com/housing/pictures/Rear-Exterior.jpg">
+          <img class="ballot-gallery" src="https://media.fitzjcr.com/housing/pictures/Rear-Exterior.jpg" title="The exterior of 87 and 89 Huntingdon Road" width=100 />
+        </a>
+      </div>
+    </div>
+  </div>
+  <script>
+    var galleryImg = document.getElementById("gallery-large");
+    var galleryLnk = document.getElementById("gallery-link");
+    var galleryDsc = document.getElementById("gallery-caption");
+    var smallImages = document.getElementById("smalls").getElementsByTagName("a");
+
+    var descs = ["<p>Ground floor plans for 87 Oxford Road</p> ", "<p>The exterior of 87 and 89 Huntingdon Road</p> "];
+
+    for(i = 0; i < smallImages.length; i++){
+      smallImages[i].ord = i;
+      smallImages[i].onclick = function(e){
+        var img = this.getElementsByTagName("img")[0]
+        galleryImg.src = img.src;
+        galleryImg.attributes['title'] = img.attributes['title'];
+        galleryLnk.attributes["href"].value = img.src;
+        galleryDsc.innerHTML = descs[this.ord];
+        e.preventDefault();
+        return false;
+      }
+    }
+  </script>
+  <div class="col-md-8">
+    <div class="alert alert-info" role="alert">
+      <ul>
+        <% @house.information.each_line do |line| %>
+          <li><%= line %></li>
+        <% end %>
+      </ul>
+    </div>
+    <span><b>Price Range: </b><%= @house.price %></span>
+  </div>
+</div>
