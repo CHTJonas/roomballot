@@ -1,6 +1,11 @@
 source 'https://rubygems.org'
+gem 'bundler'
 gem 'rails', '~> 5.1.5'
-gem 'sqlite3'
+
+#Replace SQLite with Postgres for Heroku
+#gem 'sqlite3'
+gem 'pg'
+
 gem 'puma', '~> 3.7'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
@@ -27,3 +32,5 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
+
+ruby "2.5.0"
