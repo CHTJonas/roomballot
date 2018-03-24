@@ -1,5 +1,6 @@
 # Ignore operating system aritfacts
 .DS_Store
+*.rdb
 
 # Ignore bundler config.
 /.bundle
