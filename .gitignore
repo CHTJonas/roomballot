@@ -2,6 +2,9 @@
 .DS_Store
 *.rdb
 
+# Ignore local Procodile overrides
+Procfile.local
+
 # Ignore bundler config.
 /.bundle
 

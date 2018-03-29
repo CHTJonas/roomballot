@@ -2,6 +2,18 @@ app_name: roomballot
 log_root: log
 pid_root: tmp/pids
 console_command: bundle exec rails console
+env:
+  RAILS_ENV: production
 processes:
   web:
+    log_file_name: puma.log
     restart_mode: usr2
+    term_signal: INT
+  worker:
+    log_file_name: sidekiq.log
+    restart_mode: start-term
+    term_signal: INT
+  cron:
+    log_file_name: clockwork.log
+    restart_mode: start-term
+    term_signal: INT
