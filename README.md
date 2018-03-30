@@ -9,8 +9,8 @@ It is designed to run on the SRCF's web server, but in theory it should be easil
 
 ## Contributors
 Roomballot was written by:
-* Charlie Jonas (JCR Webmaster 2016)
-* Tom Benn (JCR Webmaster 2017)
+* [Charlie Jonas](https://github.com/chtjonas) - JCR Webmaster 2016
+* [Tom Benn](https://github.com/fridgecow) - JCR Webmaster 2017
 
 ## Demo
 There is a demo version of Roomballot deployed to Heroku.
