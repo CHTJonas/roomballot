@@ -68,6 +68,7 @@ GEM
     erubi (1.7.1)
     execjs (2.7.0)
     ffi (1.9.23)
+    get_process_mem (0.2.1)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
     high_voltage (3.0.0)
@@ -96,6 +97,9 @@ GEM
     pg (1.0.0)
     public_suffix (3.0.2)
     puma (3.11.3)
+    puma_worker_killer (0.1.0)
+      get_process_mem (~> 0.2)
+      puma (>= 2.7, < 4)
     rack (2.0.4)
     rack-protection (2.0.1)
       rack
@@ -197,6 +201,7 @@ DEPENDENCIES
   listen (>= 3.0.5, < 3.2)
   pg
   puma (~> 3.7)
+  puma_worker_killer
   rails (~> 5.1.5)
   sass-rails (~> 5.0)
   selenium-webdriver

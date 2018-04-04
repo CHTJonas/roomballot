@@ -9,6 +9,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'high_voltage', '~> 3.0.0'
 gem 'sidekiq'
 gem 'clockwork'
+gem 'puma_worker_killer'
 
 group :deployment do
   gem 'pg'
