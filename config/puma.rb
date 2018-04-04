@@ -14,8 +14,8 @@ before_fork do
   # Kill runaway Puma workers that consume too much memory
   # You can customise the defaults values in your Procfile.local file
   PumaWorkerKiller.config do |config|
-    config.ram           = Float(ENV.fetch("PWK_RAM") { 1024 })      # mb
-    config.frequency     = Float(ENV.fetch("PWK_FREQUENCY") { 5 })  # seconds
+    config.ram           = Float(ENV.fetch("PWK_RAM") { 512 })      # mb
+    config.frequency     = Float(ENV.fetch("PWK_FREQUENCY") { 20 })  # seconds
     config.percent_usage = 0.98
     config.reaper_status_logs = true
     # Enable this to get a full dump of a worker when it is killed
