@@ -4,6 +4,7 @@ pid_root: tmp/pids
 console_command: bundle exec rails console
 env:
   RAILS_ENV: production
+  RAILS_MAX_THREADS: 16
 processes:
   web:
     log_file_name: puma.log
