@@ -11,6 +11,10 @@ module Roomballot
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.1
 
+    # Use a single named logfile for Rails
+    logfile = Rails.root.join('log', 'rails.log')
+    Rails.logger = Logger.new(logfile)
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
