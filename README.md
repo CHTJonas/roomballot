@@ -16,14 +16,24 @@ Roomballot was written by:
 * [Tom Benn](https://github.com/fridgecow) - JCR Webmaster 2017
 
 ## Demo
-There is a demo version of Roomballot deployed to Heroku.
+There is a demo version of Roomballot which gets automatically deployed to Heroku.
 You can view it [here](https://roomballot.herokuapp.com)
 
 ## Installation
-See [here](https://github.com/CHTJonas/roomballot/wiki/Install) on the wiki for installation instructions.
+Roomballot can be installed on the SRCF or a private VPS. Full installation instructions are available on the project wiki [here](https://github.com/CHTJonas/roomballot/wiki/Install).
+The software itself depends on the following application services or frameworks:
+* Ruby on Rails
+* PostgreSQL (MySQL possible but unsupported)
+* Redis
 
 ## Contributing
-You are cordially invited to contribute to this project! Please see [Code of Conduct](https://github.com/CHTJonas/roomballot/blob/master/CODE_OF_CONDUCT.md) and [Contributing](https://github.com/CHTJonas/roomballot/blob/master/CONTRIBUTING.md) for more information.
+We welcome development/suggestions
+
+You are cordially invited to contribute to this project!
+We welcome comments and suggestion as well as bug reports in the form of GitHub [issues](https://github.com/CHTJonas/roomballot/issues).
+If you are reporting a security vulnerability we ask that you not submit a public issue but send an email to the project maintainers.
+Please see our [Code of Conduct](https://github.com/CHTJonas/roomballot/blob/master/CODE_OF_CONDUCT.md) and 
+[Contributing Guidelines](https://github.com/CHTJonas/roomballot/blob/master/CONTRIBUTING.md) for more information.
 
 ## License & Legal
 The Fitzwilliam College JCR Room Balloting System is released as open source/libre software under Version 3 of the GNU General Public License.
