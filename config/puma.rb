@@ -1,12 +1,13 @@
 threads_count = ENV.fetch("RAILS_MAX_THREADS") { 5 }
 threads threads_count, threads_count
-port        ENV.fetch("PORT") { 3000 }
+bind "tcp://" + ENV.fetch("IP") { "127.0.0.1" } + ":" + ENV.fetch("PORT") { 3000 }.to_s
 environment ENV.fetch("RAILS_ENV") { "development" }
 workers ENV.fetch("WEB_CONCURRENCY") { 1 }
 
-# Don't preload the app. Enabling this will reduce CPU and memory pressure
-# when starting Puma workers at the disadvantage of disabling phased-restarts.
-##preload_app!
+# Preload the app to reduce CPU and memory pressure.
+# If you really need zero downtime phased-restarts you
+# will need to disable this option.
+preload_app!
 
 before_fork do
   require 'puma_worker_killer'
@@ -14,12 +15,11 @@ before_fork do
   # Kill runaway Puma workers that consume too much memory
   # You can customise the defaults values in your Procfile.local file
   PumaWorkerKiller.config do |config|
-    config.ram           = Float(ENV.fetch("PWK_RAM") { 512 })      # mb
-    config.frequency     = Float(ENV.fetch("PWK_FREQUENCY") { 20 })  # seconds
+    config.ram           = ENV.fetch("PWK_RAM") { 512 }.to_i       # mb
+    config.frequency     = ENV.fetch("PWK_FREQUENCY") { 10 }.to_i  # seconds
     config.percent_usage = 0.98
-    config.reaper_status_logs = true
-    # Enable this to get a full dump of a worker when it is killed
-    ##config.pre_term = -> (worker) { puts "Worker #{worker.inspect} is being killed" }
+    config.rolling_restart_frequency = 6 * 3600 # 6 hours in seconds
+    config.reaper_status_logs = false
   end
   PumaWorkerKiller.start
 end
