@@ -11,6 +11,7 @@ preload_app!
 
 before_fork do
   require 'puma_worker_killer'
+  require 'raven'
   ActiveRecord::Base.connection_pool.disconnect! if defined?(ActiveRecord)
   # Kill runaway Puma workers that consume too much memory
   # You can customise the defaults values in your Procfile.local file
@@ -20,6 +21,7 @@ before_fork do
     config.percent_usage = 0.98
     config.rolling_restart_frequency = 6 * 3600 # 6 hours in seconds
     config.reaper_status_logs = false
+    config.pre_term = -> (worker) { Raven.capture_message("Puma worker killed", :level => 'info') if ENV['ENABLE_SENTRY'].present? }
   end
   PumaWorkerKiller.start
 end

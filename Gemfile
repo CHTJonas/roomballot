@@ -13,6 +13,7 @@ gem 'puma_worker_killer'
 
 group :deployment do
   gem 'pg'
+  gem 'sentry-raven'
 end
 
 group :development, :test do

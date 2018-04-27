@@ -26,6 +26,9 @@ The software itself depends on the following application services or frameworks:
 * PostgreSQL (MySQL possible but unsupported)
 * Redis
 
+If you need to monitor your production deployment then Roomballot can optionally integrate with the following DevOps tools:
+* Sentry
+
 ## Contributing
 We welcome development/suggestions
 
