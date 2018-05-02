@@ -30,12 +30,17 @@ If you need to monitor your production deployment then Roomballot can optionally
 * Sentry
 
 ## Contributing
-We welcome development/suggestions
-
 You are cordially invited to contribute to this project!
-We welcome comments and suggestion as well as bug reports in the form of GitHub [issues](https://github.com/CHTJonas/roomballot/issues).
+We welcome comments and new feature suggestions in addition to bug reports in the form of GitHub [issues](https://github.com/CHTJonas/roomballot/issues).
+If you think this is something you can do yourself:
+1. Fork it ( https://github.com/CHTJonas/roomballot/fork )
+2. Create your feature branch (`git checkout -b my-new-feature`)
+3. Commit your changes (`git commit -am 'Add some feature'`)
+4. Push to the branch (`git push origin my-new-feature`)
+5. Create a new Pull Request
+
 If you are reporting a security vulnerability we ask that you not submit a public issue but send an email to the project maintainers.
-Please see our [Code of Conduct](https://github.com/CHTJonas/roomballot/blob/master/CODE_OF_CONDUCT.md) and 
+Please see our [Code of Conduct](https://github.com/CHTJonas/roomballot/blob/master/CODE_OF_CONDUCT.md) and
 [Contributing Guidelines](https://github.com/CHTJonas/roomballot/blob/master/CONTRIBUTING.md) for more information.
 
 ## License & Legal
