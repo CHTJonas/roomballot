@@ -1,0 +1,36 @@
+{
+  "name": "roomballot",
+  "scripts": {
+  },
+  "env": {
+    "REDIS_URL": {
+      "required": true
+    },
+    "DATABASE_URL": {
+      "required": true
+    }
+  },
+  "formation": {
+    "cron": {
+      "quantity": 1,
+      "size": "Standard-1X"
+    },
+    "worker": {
+      "quantity": 1,
+      "size": "Standard-1X"
+    },
+    "web": {
+      "quantity": 1,
+      "size": "Standard-1X"
+    }
+  },
+  "addons": [
+    "heroku-postgresql",
+    "heroku-redis"
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/ruby"
+    }
+  ]
+}
