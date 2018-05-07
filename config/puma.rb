@@ -1,6 +1,13 @@
+require_relative '../app/helpers/heroku_helper.rb'
 threads_count = ENV.fetch("RAILS_MAX_THREADS") { 5 }
 threads threads_count, threads_count
-bind "tcp://" + ENV.fetch("IP") { "127.0.0.1" } + ":" + ENV.fetch("PORT") { 3000 }.to_s
+if HerokuHelper::on_heroku?
+  # Heroku doesn't like Puma's bind statement
+  # so use a port statement instead
+  port ENV.fetch("PORT") { 3000 }
+else
+  bind "tcp://" + ENV.fetch("IP") { "127.0.0.1" } + ":" + ENV.fetch("PORT") { 3000 }.to_s
+end
 environment ENV.fetch("RAILS_ENV") { "development" }
 workers ENV.fetch("WEB_CONCURRENCY") { 1 }
 
