@@ -12,6 +12,7 @@ gem 'clockwork'
 gem 'puma_worker_killer'
 gem 'kaminari', '~> 1.1', '>= 1.1.1'
 gem 'paranoia', '~> 2.4', '>= 2.4.1'
+gem 'rack-timeout-puma', '~> 0.0.1'
 
 group :deployment do
   gem 'pg'
