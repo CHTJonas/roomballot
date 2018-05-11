@@ -8,9 +8,11 @@ Procfile.local
 # Ignore bundler config.
 /.bundle
 
-# Ignore encrypted secrets key file.
-config/secrets.yml.key
-config/secrets.yml.enc
+# Ignore master key for decrypting credentials and more.
+/config/master.key
+
+# Ignore encrypted credentials file.
+config/credentials.yml.enc
 
 # Ignore the default SQLite database.
 /db/*.sqlite3
