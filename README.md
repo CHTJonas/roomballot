@@ -1,6 +1,5 @@
 # Fitz JCR Housing Ballot System
 [![Maintainability](https://api.codeclimate.com/v1/badges/d9809cce796fad2fc9cf/maintainability)](https://codeclimate.com/github/CHTJonas/roomballot/maintainability)
-[![Dependency Status](https://beta.gemnasium.com/badges/github.com/CHTJonas/roomballot.svg)](https://beta.gemnasium.com/projects/github.com/CHTJonas/roomballot)
 [![Build Status](https://travis-ci.org/CHTJonas/roomballot.svg?branch=master)](https://travis-ci.org/CHTJonas/roomballot)
 
 This is the code repository for Fitzwilliam College JCR's online Room & Housing Ballot System.
