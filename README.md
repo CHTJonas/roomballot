@@ -6,7 +6,7 @@ Status](https://travis-ci.org/CHTJonas/roomballot.svg?branch=master)](https://tr
 This is the code repository for Fitzwilliam College JCR's online Room & Housing Ballot System.
 It is very much still a work in progress and we do not have an estimated release date for a production version.
 
-The [initial incarnation](https://github.com/CHTJonas/roomballot/tree/old-master) of Roomballot was written in raw PHP with no frameworking.
+The [initial incarnation](https://github.com/CHTJonas/roomballot-old) of Roomballot was written in raw PHP with no frameworking.
 This became unwieldy to maintain and develop so we transitioned to a Rails application.
 Roomballot now runs exclusively on Rails, with a few helper scripts written in Python.
 It is designed to run on the SRCF's web server, but in theory it should be easily deployed elsewhere too.
