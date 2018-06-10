@@ -6,7 +6,7 @@ Status](https://travis-ci.org/CHTJonas/roomballot.svg?branch=master)](https://tr
 This is the code repository for Fitzwilliam College JCR's online Room & Housing Ballot System.
 It is very much still a work in progress and we do not have an estimated release date for a production version.
 
-The [initial incarnation](https://github.com/CHTJonas/roomballot-old) of Roomballot was written in raw PHP with no frameworking.
+The [initial incarnation](https://github.com/fitzjcr/roomballot-old) of Roomballot was written in raw PHP with no frameworking.
 This became unwieldy to maintain and develop so we transitioned to a Rails application.
 Roomballot now runs exclusively on Rails, with a few helper scripts written in Python.
 It is designed to run on the SRCF's web server, but in theory it should be easily deployed elsewhere too.
@@ -21,7 +21,7 @@ There is a demo version of Roomballot which gets automatically deployed to Herok
 You can view it [here](https://roomballot-prod.herokuapp.com)
 
 ## Installation
-Roomballot can be installed on the SRCF or a private VPS. Full installation instructions are available on the project wiki [here](https://github.com/CHTJonas/roomballot/wiki/Install).
+Roomballot can be installed on the SRCF or a private VPS. Full installation instructions are available on the project wiki [here](https://github.com/fitzjcr/roomballot/wiki/Install).
 The software itself depends on the following application services or frameworks:
 * Ruby on Rails
 * PostgreSQL (MySQL possible but unsupported)
@@ -32,17 +32,17 @@ If you need to monitor your production deployment then Roomballot can optionally
 
 ## Contributing
 You are cordially invited to contribute to this project!
-We welcome comments and new feature suggestions in addition to bug reports in the form of GitHub [issues](https://github.com/CHTJonas/roomballot/issues).
+We welcome comments and new feature suggestions in addition to bug reports in the form of GitHub [issues](https://github.com/fitzjcr/roomballot/issues).
 If you think this is something you can do yourself:
-1. Fork it ( https://github.com/CHTJonas/roomballot/fork )
+1. Fork it ( https://github.com/fitzjcr/roomballot/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create a new Pull Request
 
 If you are reporting a security vulnerability we ask that you not submit a public issue but send an email to the project maintainers.
-Please see our [Code of Conduct](https://github.com/CHTJonas/roomballot/blob/master/CODE_OF_CONDUCT.md) and
-[Contributing Guidelines](https://github.com/CHTJonas/roomballot/blob/master/CONTRIBUTING.md) for more information.
+Please see our [Code of Conduct](https://github.com/fitzjcr/roomballot/blob/master/CODE_OF_CONDUCT.md) and
+[Contributing Guidelines](https://github.com/fitzjcr/roomballot/blob/master/CONTRIBUTING.md) for more information.
 
 ## License & Legal
 The Fitzwilliam College JCR Room Balloting System is released as open source/libre software under Version 3 of the GNU General Public License.
