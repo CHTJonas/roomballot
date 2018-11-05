@@ -21,6 +21,9 @@ gem 'kaminari', '~> 1.1', '>= 1.1.1'
 gem 'paranoia', '~> 2.4', '>= 2.4.1'
 gem 'rack-timeout-puma', '~> 0.0.1'
 
+gem 'omniauth'
+gem 'omniauth-ucam-raven', :path => '../omniauth-ucam-raven'
+
 group :deployment do
   gem 'redis', '~> 4.0'
   gem 'pg'

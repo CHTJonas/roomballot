@@ -1,3 +1,9 @@
+PATH
+  remote: ../omniauth-ucam-raven
+  specs:
+    omniauth-ucam-raven (1.0.0)
+      omniauth (~> 1.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -93,6 +99,7 @@ GEM
     get_process_mem (0.2.1)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
+    hashie (3.5.7)
     high_voltage (3.0.0)
     i18n (1.0.1)
       concurrent-ruby (~> 1.0)
@@ -135,6 +142,9 @@ GEM
     nio4r (2.3.1)
     nokogiri (1.8.5)
       mini_portile2 (~> 2.3.0)
+    omniauth (1.8.1)
+      hashie (>= 3.4.6, < 3.6.0)
+      rack (>= 1.6.2, < 3)
     paranoia (2.4.1)
       activerecord (>= 4.0, < 5.3)
     pg (1.0.0)
@@ -255,6 +265,8 @@ DEPENDENCIES
   kaminari (~> 1.1, >= 1.1.1)
   listen (>= 3.0.5, < 3.2)
   mini_magick (~> 4.8)
+  omniauth
+  omniauth-ucam-raven!
   paranoia (~> 2.4, >= 2.4.1)
   pg
   puma (~> 3.11)
