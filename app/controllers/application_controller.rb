@@ -7,6 +7,14 @@ class ApplicationController < ActionController::Base
   helper_method :user_signed_in?
   helper_method :user_is_admin?
 
+  # Recue exceptions raised due to cross-site request forgery
+  rescue_from ActionController::InvalidAuthenticityToken do |exception|
+    invalidate_session
+    alert = { 'class' => 'danger', 'message' => "Cross-site request forgery detected! If you are seeing this message, try clearing your browser's cache/cookies and then try again." }
+    flash.now[:alert] = alert
+    render 'layouts/blank', locals: {reason: "CSRF detected: #{exception.message}"}, status: :forbidden
+  end
+
   private
 
   # Finds the User with the ID that is stored in the session.
@@ -31,10 +39,16 @@ class ApplicationController < ActionController::Base
 
   # Method to ensure a logged in user is not blocked.
   def check_user!
-    if user_signed_in?
-      if current_user.blocked?
-        invalidate_session
-      end
+    # if user_signed_in?
+    #   if current_user.blocked?
+    #     invalidate_session
+    #   end
+    # end
+    unless user_signed_in? && !current_user.blocked?
+      return if request.original_fullpath == '/login'
+      alert = { 'class' => 'warning', 'message' => 'You must login to view this page.' }
+      flash.now[:alert] = alert
+      render 'layouts/blank', locals: {reason: 'user not authenticated'}, status: :forbidden
     end
   end
 
@@ -46,7 +60,7 @@ class ApplicationController < ActionController::Base
 
   def set_raven_context
     if Rails.env.production?
-      Raven.user_context(id: current_user.try(:id), name: current_user.try(:name), email: current_user.try(:email))
+      Raven.user_context(id: current_user.try(:id), crsid: current_user.try(:uid), name: current_user.try(:name), email: current_user.try(:email))
       Raven.extra_context(params: params.to_unsafe_h, url: request.url)
     end
   end

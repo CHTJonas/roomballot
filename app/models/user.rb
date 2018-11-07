@@ -1,17 +1,5 @@
 class User < ApplicationRecord
 
-  # Create a User model object from an omniauth authentication object.
-  def self.create_with_omniauth(auth)
-    create! do |user|
-      user.provider = auth['provider']
-      user.uid = auth['uid']
-      if auth['info']
-         user.name = auth['info']['name'] || ""
-         user.email = auth['info']['email'] || ""
-      end
-    end
-  end
-
   # Grants site administrator privileges to the user.
   def make_admin!
     self.admin = true
@@ -20,6 +8,16 @@ class User < ApplicationRecord
   # Revokes site administrator privileges from the user.
   def revoke_admin!
     self.admin = false
+  end
+
+  # Block a user - stops them from logging in.
+  def block!
+    self.blocked = true
+  end
+
+  # Unblock a user.
+  def unblock!
+    self.blocked = false
   end
 
 end
