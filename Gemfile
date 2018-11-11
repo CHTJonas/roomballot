@@ -13,13 +13,29 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'mini_magick', '~> 4.8'
 gem 'bootsnap', '>= 1.1.0', require: false
 
+# Static page rendering
 gem 'high_voltage', '~> 3.0.0'
-gem 'sidekiq'
-gem 'clockwork'
-gem 'puma_worker_killer'
+
+# Pagination
 gem 'kaminari', '~> 1.1', '>= 1.1.1'
+
+# Soft-delete records from the database
 gem 'paranoia', '~> 2.4', '>= 2.4.1'
+
+gem 'puma_worker_killer'
 gem 'rack-timeout-puma', '~> 0.0.1'
+
+# Authorisation library
+gem 'cancancan', '~> 2.0'
+
+# Login flow
+gem 'omniauth'
+gem 'omniauth-ucam-raven', :git => 'https://github.com/CHTJonas/omniauth-ucam-raven.git'
+
+# Background job processing
+gem 'sidekiq'
+gem 'sidekiq-cron', '~> 0.6.3'
+gem 'rufus-scheduler', '~> 3.4.0' # needed as a bugfix for above
 
 group :deployment do
   gem 'redis', '~> 4.0'

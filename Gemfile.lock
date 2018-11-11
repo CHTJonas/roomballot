@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/CHTJonas/omniauth-ucam-raven.git
+  revision: b9e87fa8ec03cc0a250cc025e735e3c7ac375612
+  specs:
+    omniauth-ucam-raven (1.0.0)
+      omniauth (~> 1.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -59,6 +66,7 @@ GEM
       msgpack (~> 1.0)
     builder (3.2.3)
     byebug (10.0.2)
+    cancancan (2.3.0)
     capybara (3.0.3)
       addressable
       mini_mime (>= 0.1.3)
@@ -71,8 +79,6 @@ GEM
     chromedriver-helper (1.2.0)
       archive-zip (~> 0.10)
       nokogiri (~> 1.8)
-    clockwork (2.0.3)
-      tzinfo
     coderay (1.1.2)
     coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
@@ -86,6 +92,8 @@ GEM
     crass (1.0.4)
     debug_inspector (0.0.3)
     erubi (1.7.1)
+    et-orbi (1.1.6)
+      tzinfo
     execjs (2.7.0)
     faraday (0.15.0)
       multipart-post (>= 1.2, < 3)
@@ -93,6 +101,7 @@ GEM
     get_process_mem (0.2.1)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
+    hashie (3.5.7)
     high_voltage (3.0.0)
     i18n (1.0.1)
       concurrent-ruby (~> 1.0)
@@ -135,6 +144,9 @@ GEM
     nio4r (2.3.1)
     nokogiri (1.8.5)
       mini_portile2 (~> 2.3.0)
+    omniauth (1.8.1)
+      hashie (>= 3.4.6, < 3.6.0)
+      rack (>= 1.6.2, < 3)
     paranoia (2.4.1)
       activerecord (>= 4.0, < 5.3)
     pg (1.0.0)
@@ -182,6 +194,8 @@ GEM
     redis (4.0.1)
     ruby_dep (1.5.0)
     rubyzip (1.2.2)
+    rufus-scheduler (3.4.2)
+      et-orbi (~> 1.0)
     sass (3.5.6)
       sass-listen (~> 4.0.0)
     sass-listen (4.0.0)
@@ -203,6 +217,9 @@ GEM
       connection_pool (~> 2.2, >= 2.2.0)
       rack-protection (>= 1.5.0)
       redis (>= 3.3.5, < 5)
+    sidekiq-cron (0.6.3)
+      rufus-scheduler (>= 3.3.0)
+      sidekiq (>= 4.2.1)
     spring (2.0.2)
       activesupport (>= 4.2)
     spring-watcher-listen (2.0.1)
@@ -246,15 +263,17 @@ DEPENDENCIES
   binding_of_caller
   bootsnap (>= 1.1.0)
   byebug
+  cancancan (~> 2.0)
   capybara (>= 2.15, < 4.0)
   chromedriver-helper
-  clockwork
   coffee-rails (~> 4.2)
   high_voltage (~> 3.0.0)
   jbuilder (~> 2.5)
   kaminari (~> 1.1, >= 1.1.1)
   listen (>= 3.0.5, < 3.2)
   mini_magick (~> 4.8)
+  omniauth
+  omniauth-ucam-raven!
   paranoia (~> 2.4, >= 2.4.1)
   pg
   puma (~> 3.11)
@@ -262,10 +281,12 @@ DEPENDENCIES
   rack-timeout-puma (~> 0.0.1)
   rails (~> 5.2.0)
   redis (~> 4.0)
+  rufus-scheduler (~> 3.4.0)
   sass-rails (~> 5.0)
   selenium-webdriver
   sentry-raven
   sidekiq
+  sidekiq-cron (~> 0.6.3)
   spring
   spring-watcher-listen (~> 2.0.0)
   sqlite3
