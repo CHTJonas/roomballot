@@ -1,5 +1,7 @@
 class SessionsController < ApplicationController
 
+  skip_before_action :check_user!
+
   def new
     redirect_to '/auth/ucamraven'
   end

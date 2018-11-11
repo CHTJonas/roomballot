@@ -39,13 +39,7 @@ class ApplicationController < ActionController::Base
 
   # Method to ensure a logged in user is not blocked.
   def check_user!
-    # if user_signed_in?
-    #   if current_user.blocked?
-    #     invalidate_session
-    #   end
-    # end
     unless user_signed_in? && !current_user.blocked?
-      return if request.original_fullpath == '/login'
       alert = { 'class' => 'warning', 'message' => 'You must login to view this page.' }
       flash.now[:alert] = alert
       render 'layouts/blank', locals: {reason: 'user not authenticated'}, status: :forbidden
