@@ -12,6 +12,8 @@ class SessionsController < ApplicationController
     # We don't create users - they have to be explicitly authorised.
     # user = User.find_by(provider: auth['provider'], uid: auth['uid'])
     user = User.first
+    # Issue a new session identifier to protect against fixation
+    reset_session
     if user.nil?
       alert = { 'class' => 'danger', 'message' => 'You do not have an account on the system. Please contact the site owner.' }
       flash.now[:alert] = alert

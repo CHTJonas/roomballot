@@ -50,6 +50,8 @@ class ApplicationController < ActionController::Base
   def invalidate_session
     # This removes the user_id session value
     @current_user = session[:user_id] = nil
+    # Issue a new session identifier to protect against fixation
+    reset_session
   end
 
   def set_raven_context
