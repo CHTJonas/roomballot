@@ -23,6 +23,7 @@ gem 'kaminari', '~> 1.1', '>= 1.1.1'
 gem 'paranoia', '~> 2.4', '>= 2.4.1'
 
 gem 'puma_worker_killer'
+gem 'rack-timeout', require:'rack/timeout/base'
 gem 'rack-timeout-puma', '~> 0.0.1'
 
 # Authorisation library
@@ -30,7 +31,7 @@ gem 'cancancan', '~> 2.0'
 
 # Login flow
 gem 'omniauth'
-gem 'omniauth-ucam-raven', :git => 'https://github.com/CHTJonas/omniauth-ucam-raven.git'
+gem 'omniauth-ucam-raven'
 
 # Background job processing
 gem 'sidekiq'
