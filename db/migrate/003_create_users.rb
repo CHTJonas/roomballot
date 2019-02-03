@@ -4,7 +4,7 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.string  :name
       t.string  :email
       t.string  :crsid
-      t.integer :year_group
+      t.integer :category
       t.boolean :admin
       t.boolean :blocked
 

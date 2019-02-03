@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 3) do
     t.string "name"
     t.string "email"
     t.string "crsid"
-    t.integer "year_group"
+    t.integer "category"
     t.boolean "admin"
     t.boolean "blocked"
     t.datetime "created_at", null: false
