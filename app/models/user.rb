@@ -1,3 +1,20 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id              :integer          not null, primary key
+#  name            :string
+#  email           :string
+#  crsid           :string
+#  category        :integer
+#  admin           :boolean
+#  blocked         :boolean
+#  ballot_group_id :integer
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  deleted_at      :datetime
+#
+
 class User < ApplicationRecord
   belongs_to :ballot_group
 
