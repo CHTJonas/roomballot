@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_05_224240) do
+ActiveRecord::Schema.define(version: 3) do
 
   create_table "houses", force: :cascade do |t|
     t.string "name"
@@ -38,8 +38,8 @@ ActiveRecord::Schema.define(version: 2018_11_05_224240) do
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
-    t.string "provider"
-    t.string "uid"
+    t.string "crsid"
+    t.integer "year_group"
     t.boolean "admin"
     t.boolean "blocked"
     t.datetime "created_at", null: false

@@ -19,5 +19,4 @@ class User < ApplicationRecord
   def unblock!
     self.blocked = false
   end
-
 end

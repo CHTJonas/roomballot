@@ -1,5 +1,4 @@
 class SessionsController < ApplicationController
-
   skip_before_action :check_user!
 
   def new
@@ -7,15 +6,14 @@ class SessionsController < ApplicationController
   end
 
   def create
-    auth = request.env["omniauth.auth"]
-    # Find the user if they exist.
-    # We don't create users - they have to be explicitly authorised.
-    # user = User.find_by(provider: auth['provider'], uid: auth['uid'])
-    user = User.first
     # Issue a new session identifier to protect against fixation
     reset_session
+    auth = request.env["omniauth.auth"]
+    # Find the user if they exist. Note that we don't create users - they
+    # have to be explicitly authorised.
+    user = User.find_by(crsid: auth['uid'])
     if user.nil?
-      alert = { 'class' => 'danger', 'message' => 'You do not have an account on the system. Please contact the site owner.' }
+      alert = { 'class' => 'danger', 'message' => 'You do not have an account on the Room Ballot system. Please contact the JCR Website Officer.' }
       flash.now[:alert] = alert
       render 'layouts/blank', locals: {reason: 'user auth successful but no account found'}, status: :forbidden and return
     end
