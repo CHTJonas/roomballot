@@ -22,9 +22,11 @@ gem 'kaminari', '~> 1.1', '>= 1.1.1'
 # Soft-delete records from the database
 gem 'paranoia', '~> 2.4', '>= 2.4.1'
 
-gem 'puma_worker_killer'
-gem 'rack-timeout', require:'rack/timeout/base'
-gem 'rack-timeout-puma', '~> 0.0.1'
+# Kill workers that utilise excessive RAM
+gem 'puma_worker_killer', '~> 0.1.0'
+
+# Timeout long-running requests
+gem 'rack-timeout', '~> 0.5.1', require:'rack/timeout/base'
 
 # Authorisation library
 gem 'cancancan', '~> 2.0'
@@ -33,18 +35,17 @@ gem 'cancancan', '~> 2.0'
 gem 'possessive', '~> 1.0', '>= 1.0.1'
 
 # Login flow
-gem 'omniauth'
-gem 'omniauth-ucam-raven'
+gem 'omniauth-ucam-raven', '~> 1.0', '>= 1.0.1'
 
 # Background job processing
-gem 'sidekiq'
+gem 'sidekiq', '~> 5.2', '>= 5.2.5'
 gem 'sidekiq-cron', '~> 0.6.3'
 gem 'rufus-scheduler', '~> 3.4.0' # needed as a bugfix for above
 
 group :deployment do
   gem 'redis', '~> 4.0'
-  gem 'pg'
-  gem 'sentry-raven'
+  gem 'pg', '~> 1.1', '>= 1.1.4'
+  gem 'sentry-raven', '~> 2.9'
 end
 
 group :development, :test do
@@ -60,8 +61,9 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  gem "better_errors"
-  gem "binding_of_caller"
+  # Improve upon Rails' default error pages
+  gem 'better_errors'
+  gem 'binding_of_caller'
   # Annotate models
   gem 'annotate'
 end
