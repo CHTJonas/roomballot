@@ -29,6 +29,9 @@ gem 'rack-timeout-puma', '~> 0.0.1'
 # Authorisation library
 gem 'cancancan', '~> 2.0'
 
+# Monkey Patching
+gem 'possessive', '~> 1.0', '>= 1.0.1'
+
 # Login flow
 gem 'omniauth'
 gem 'omniauth-ucam-raven'

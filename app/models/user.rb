@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  belongs_to :ballot_group
 
   # The user's category, which very roughly equates to their priority in
   # the ballot.
@@ -26,6 +27,17 @@ class User < ApplicationRecord
     else
       raise 'Unknown group'
     end
+  end
+
+  def self.create_with_group(*args)
+    u = User.new(*args)
+    bg = BallotGroup.new
+    bg.name = "#{u.name.possessive} Ballot Group" unless u.name.blank?
+    bg.owner = u
+    u.ballot_group = bg
+
+    # This will save the user and group in a single transaction.
+    u.save
   end
 
   # Grants site administrator privileges to the user.

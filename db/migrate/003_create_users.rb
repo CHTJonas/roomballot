@@ -7,6 +7,7 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.integer :category
       t.boolean :admin
       t.boolean :blocked
+      t.references :ballot_group, foreign_key: true
 
       t.timestamps
       t.datetime :deleted_at
