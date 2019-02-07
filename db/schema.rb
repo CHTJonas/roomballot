@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 4) do
+ActiveRecord::Schema.define(version: 5) do
 
   create_table "ballot_groups", force: :cascade do |t|
     t.string "name"
@@ -26,12 +26,22 @@ ActiveRecord::Schema.define(version: 4) do
     t.string "size"
     t.string "price"
     t.text "information"
-    t.string "images"
-    t.string "imageDescriptions"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.datetime "deleted_at"
     t.index ["deleted_at"], name: "index_houses_on_deleted_at"
+  end
+
+  create_table "images", force: :cascade do |t|
+    t.text "url"
+    t.text "description"
+    t.string "dwelling_type"
+    t.integer "dwelling_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.datetime "deleted_at"
+    t.index ["deleted_at"], name: "index_images_on_deleted_at"
+    t.index ["dwelling_type", "dwelling_id"], name: "index_images_on_dwelling_type_and_dwelling_id"
   end
 
   create_table "reviews", force: :cascade do |t|

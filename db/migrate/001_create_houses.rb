@@ -5,8 +5,6 @@ class CreateHouses < ActiveRecord::Migration[5.1]
       t.string :size
       t.string :price
       t.text   :information
-      t.string :images
-      t.string :imageDescriptions
 
       t.timestamps
       t.datetime :deleted_at
