@@ -12,8 +12,10 @@ class BallotGroupsController < ApplicationController
   end
 
   def create
-    @ballot_group = BallotGroup.new(house_params)
+    @ballot_group = BallotGroup.new(ballot_group_params)
+    @ballot_group.owner = current_user
     if @ballot_group.save
+      current_user.update(ballot_group: @ballot_group)
       redirect_to @ballot_group
     else
       render 'new'
@@ -39,7 +41,16 @@ class BallotGroupsController < ApplicationController
     redirect_to ballot_groups_path
   end
 
+  def join
+    @ballot_group = BallotGroup.find(params[:id])
+    if params[:token] == @ballot_group.token
+      current_user.update(ballot_group: @ballot_group)
+    end
+    redirect_to @ballot_group
+  end
+
   private
+
   def ballot_group_params
     params.require(:ballot_group).permit(:name, :owner)
   end

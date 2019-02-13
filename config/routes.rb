@@ -1,10 +1,16 @@
 Rails.application.routes.draw do
   root :to => 'high_voltage/pages#show', id: 'home'
+
   resources :rooms
+
   resources :houses do
     resources :reviews
   end
-  resources :ballot_groups
+
+  resources :ballot_groups do
+    get 'join', on: :member
+  end
+
   resources :users
 
   get '/auth/:provider/callback' => 'sessions#create'

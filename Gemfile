@@ -37,6 +37,9 @@ gem 'possessive', '~> 1.0', '>= 1.0.1'
 # Login flow
 gem 'omniauth-ucam-raven', '~> 1.0', '>= 1.0.1'
 
+# Secure tokens (for join links etc)
+gem 'has_secure_token', '~> 1.0'
+
 # Background job processing
 gem 'sidekiq', '~> 5.2', '>= 5.2.5'
 gem 'sidekiq-cron', '~> 0.6.3'

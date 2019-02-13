@@ -5,7 +5,7 @@
   <p class="mb-0"><%= link_to 'Invite Others', ballot_group_path(@ballot_group) %></p>
 </div>
 <p>There are <%= @ballot_group.members.count %> people in this group. The owner is <%= @ballot_group.owner.name %>.</p>
-<h3>Members</h3>
+<h3 class="mt-5">Members</h3>
 <table class="table table-condensed table-bordered table-hover">
   <thead>
     <tr>
@@ -26,3 +26,21 @@
     </tr>
   <% end %>
 </table>
+<h5 class="mt-5">Share this link with others so they can join your group:</h5>
+<textarea autocomplete="off" autocorrect="off" autocapitalize="off"
+  spellcheck="false" class="sharelink" id="sharelink"
+  onkeydown="return false;"><%= join_ballot_group_url(@ballot_group, token: @ballot_group.token) %></textarea>
+<button class="btn btn-default" id="copybutton">Copy Link To Clipboard</button>
+<script>
+var link = document.getElementById("sharelink");
+var button = document.getElementById("copybutton");
+button.onclick = function(e){
+  link.select();
+  if(document.execCommand('copy')){
+  this.innerHTML = "Link copied!";
+  this.className = "btn btn-success";
+  window.getSelection().removeAllRanges();
+  }
+}
+button.style.height = link.style.height = (link.scrollHeight-10)+'px';
+</script>

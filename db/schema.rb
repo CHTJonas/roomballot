@@ -13,11 +13,13 @@
 ActiveRecord::Schema.define(version: 5) do
 
   create_table "ballot_groups", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
+    t.string "token", null: false
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.datetime "deleted_at"
+    t.index ["token"], name: "index_ballot_groups_on_token", unique: true
     t.index ["user_id"], name: "index_ballot_groups_on_user_id"
   end
 
