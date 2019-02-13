@@ -1,0 +1,24 @@
+<% content_for :title, 'Ballot Groups' %>
+<div class="alert alert-primary" role="alert">
+  <p class="mb-0"><%= link_to 'New group', new_ballot_group_path %></p>
+</div>
+<table class="table table-condensed table-bordered table-hover">
+  <thead>
+    <tr>
+      <td>Group Name</td>
+      <td>Members</td>
+    </tr>
+  </thead>
+  <% @ballot_groups.each do |group| %>
+    <tr>
+      <td><%= link_to group.name, ballot_group_path(group) %></td>
+      <td>
+        <% group.members.each do |member| %>
+          <%= member.name %> <br>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+
+<%= paginate @ballot_groups %>

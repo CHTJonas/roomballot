@@ -1,0 +1,28 @@
+<% content_for :title, @ballot_group.name %>
+<div class="alert alert-primary" role="alert">
+  <p class="mb-0"><%= link_to 'Edit group', edit_ballot_group_path(@ballot_group) %></p>
+  <p class="mb-0"><%= link_to 'Delete group', ballot_group_path(@ballot_group), method: :delete, data: { confirm: 'Are you sure?' } %></p>
+  <p class="mb-0"><%= link_to 'Invite Others', ballot_group_path(@ballot_group) %></p>
+</div>
+<p>There are <%= @ballot_group.members.count %> people in this group. The owner is <%= @ballot_group.owner.name %>.</p>
+<h3>Members</h3>
+<table class="table table-condensed table-bordered table-hover">
+  <thead>
+    <tr>
+      <td>CRSid</td>
+      <td>Name</td>
+      <td>Assign Ownership</td>
+    </tr>
+  </thead>
+  <% @ballot_group.members.each do |member| %>
+    <tr>
+      <td><%= member.crsid %></td>
+      <td><%= member.name %></td>
+      <td>
+        <% unless @ballot_group.owner == member %>
+          Assign Ownership
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+</table>

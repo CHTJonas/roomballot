@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :houses do
     resources :reviews
   end
-  resources :groups
+  resources :ballot_groups
   resources :users
 
   get '/auth/:provider/callback' => 'sessions#create'
