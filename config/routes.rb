@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   end
 
   resources :ballot_groups do
+    get 'order', on: :collection
     get 'join', on: :member
   end
 

@@ -1,0 +1,22 @@
+<% content_for :title, "Ballot Order" %>
+
+<table class="table table-condensed table-bordered table-hover">
+  <thead>
+    <tr>
+      <td>Position</td>
+      <td>Group Name</td>
+      <td>Group Members</td>
+    </tr>
+  </thead>
+  <% @ballot_groups.each do |ballot_group| %>
+    <tr>
+      <td class="col-md-1"><%= ballot_group.position %></td>
+      <td class="col-md-3"><%= ballot_group.name %></td>
+      <td class="col-md-8">
+        <% ballot_group.members.each do |member| %>
+          <%= member.name %><br>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+</table>

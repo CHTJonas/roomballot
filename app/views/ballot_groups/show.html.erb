@@ -2,7 +2,6 @@
 <div class="alert alert-primary" role="alert">
   <p class="mb-0"><%= link_to 'Edit group', edit_ballot_group_path(@ballot_group) %></p>
   <p class="mb-0"><%= link_to 'Delete group', ballot_group_path(@ballot_group), method: :delete, data: { confirm: 'Are you sure?' } %></p>
-  <p class="mb-0"><%= link_to 'Invite Others', ballot_group_path(@ballot_group) %></p>
 </div>
 <p>There are <%= @ballot_group.members.count %> people in this group. The owner is <%= @ballot_group.owner.name %>.</p>
 <h3 class="mt-5">Members</h3>
