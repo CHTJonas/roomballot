@@ -1,22 +1,31 @@
 <% content_for :title, "Ballot Order" %>
-
-<table class="table table-condensed table-bordered table-hover">
-  <thead>
-    <tr>
-      <td>Position</td>
-      <td>Group Name</td>
-      <td>Group Members</td>
-    </tr>
-  </thead>
-  <% @ballot_groups.each do |ballot_group| %>
-    <tr>
-      <td class="col-md-1"><%= ballot_group.position %></td>
-      <td class="col-md-3"><%= ballot_group.name %></td>
-      <td class="col-md-8">
-        <% ballot_group.members.each do |member| %>
-          <%= member.name %><br>
-        <% end %>
-      </td>
-    </tr>
-  <% end %>
-</table>
+<% if ApplicationSetting.instance.shuffle_seed.present? %>
+  <p>
+    This is the randomly-generated order of the ballot.
+    Please contact the JCR Webmaster ASAP if something here looks wrong.
+  </p>
+  <table class="table table-condensed table-bordered table-hover">
+    <thead>
+      <tr>
+        <td>Position</td>
+        <td>Group Name</td>
+        <td>Group Members</td>
+      </tr>
+    </thead>
+    <% @ballot_groups.each do |ballot_group| %>
+      <tr>
+        <td><%= ballot_group.position_in_ballot %></td>
+        <td><%= link_to ballot_group.name, ballot_group_path(ballot_group) %></td>
+        <td>
+          <% ballot_group.members.each do |member| %>
+            <%= member.name %><br>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+<% else %>
+  <p>
+    The ballot order has not yet been generated. Please check back soon!
+  </p>
+<% end %>

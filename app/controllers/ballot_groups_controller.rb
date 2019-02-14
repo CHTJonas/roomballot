@@ -43,6 +43,10 @@ class BallotGroupsController < ApplicationController
     redirect_to ballot_groups_path
   end
 
+  def order
+    @ballot_groups = BallotGroup.order(:position_in_ballot)
+  end
+
   def join
     @ballot_group = BallotGroup.find(params[:id])
     if params[:token] == @ballot_group.token

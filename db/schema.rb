@@ -10,11 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 5) do
+ActiveRecord::Schema.define(version: 6) do
+
+  create_table "application_settings", force: :cascade do |t|
+    t.binary "shuffle_seed"
+  end
 
   create_table "ballot_groups", force: :cascade do |t|
     t.string "name", null: false
     t.string "token", null: false
+    t.integer "position_in_ballot"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

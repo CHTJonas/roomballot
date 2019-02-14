@@ -3,6 +3,7 @@ class CreateBallotGroups < ActiveRecord::Migration[5.2]
     create_table :ballot_groups do |t|
       t.string :name, null: false
       t.string :token, null: false
+      t.integer :position_in_ballot
       t.references :user, foreign_key: true
 
       t.timestamps
