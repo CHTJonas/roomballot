@@ -55,21 +55,21 @@ class User < ApplicationRecord
 
   # Grants site administrator privileges to the user.
   def make_admin!
-    self.admin = true
+    self.update(admin: true)
   end
 
   # Revokes site administrator privileges from the user.
   def revoke_admin!
-    self.admin = false
+    self.update(admin: false)
   end
 
   # Block a user - stops them from logging in.
   def block!
-    self.blocked = true
+    self.update(blocked: true)
   end
 
   # Unblock a user.
   def unblock!
-    self.blocked = false
+    self.update(blocked: false)
   end
 end
