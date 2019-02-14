@@ -17,7 +17,6 @@ class BallotGroup < ApplicationRecord
   has_secure_token
 
   validates :size, numericality: {
-    greater_than_or_equal_to: 1,
     less_than_or_equal_to: 9
   }
 

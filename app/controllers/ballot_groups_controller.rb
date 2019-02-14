@@ -14,11 +14,13 @@ class BallotGroupsController < ApplicationController
   def create
     @ballot_group = BallotGroup.new(ballot_group_params)
     @ballot_group.owner = current_user
-    if @ballot_group.save
-      current_user.update(ballot_group: @ballot_group)
-      redirect_to @ballot_group
-    else
-      render 'new'
+    ActiveRecord::Base.transaction do
+      if @ballot_group.save
+        current_user.update(ballot_group: @ballot_group)
+        redirect_to @ballot_group
+      else
+        render 'new' and return
+      end
     end
   end
 
