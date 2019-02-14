@@ -61,4 +61,4 @@ Image.create(url: 'https://media.fitzjcr.com/housing/pictures/Room-62.jpg', desc
 
 
 
-User.create_with_group(name: 'Charlie Jonas', email: 'charlie@charliejonas.co.uk', crsid: 'chtj2', category: :first_year, admin: true)
+User.create_with_group(name: 'Charlie Jonas', email: 'charlie@charliejonas.co.uk', crsid: 'chtj2', year_group: :first_year, admin: true)

@@ -6,7 +6,9 @@
 #  name            :string
 #  email           :string
 #  crsid           :string
-#  category        :integer
+#  year_group      :integer
+#  scholar         :boolean
+#  jcr_president   :boolean
 #  admin           :boolean
 #  blocked         :boolean
 #  ballot_group_id :integer
@@ -18,23 +20,17 @@
 class User < ApplicationRecord
   belongs_to :ballot_group
 
-  # The user's category, which very roughly equates to their priority in
-  # the ballot.
-  enum category: [ :second_year_scholar, :third_year_scholar,
-    :third_year_scholar_abroad, :second_year, :third_year_abroad,
-    :third_year, :first_year ]
+  # The user's year group category
+  enum year_group: [ :first_year, :second_year, :third_year, :third_year_abroad ]
 
-  # The user's actual priority in the ballot.
+  # The user's priority in the ballot.
   def ballot_priority
+    if self.scholar? || self.jcr_president?
+      return 1
+    end
     case self.group
-    when 'second_year_scholar'
-      return 1
-    when 'third_year_scholar'
-      return 3
-    when 'third_year_scholar_abroad'
-      return 2
     when 'second_year'
-      return 1
+      return 2
     when 'third_year_abroad'
       return 2
     when 'third_year'
