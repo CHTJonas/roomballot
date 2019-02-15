@@ -30,19 +30,7 @@
 </table>
 <h5 class="mt-5">Share this link with others so they can join your group:</h5>
 <textarea autocomplete="off" autocorrect="off" autocapitalize="off"
-  spellcheck="false" class="sharelink" id="sharelink"
-  onkeydown="return false;"><%= join_ballot_group_url(@ballot_group, token: @ballot_group.token) %></textarea>
+  spellcheck="false" class="sharelink" id="sharelink" onkeydown="return false;">
+<%= join_ballot_group_url(@ballot_group, token: @ballot_group.token) %>
+</textarea>
 <button class="btn btn-default" id="copybutton">Copy Link To Clipboard</button>
-<script>
-var link = document.getElementById("sharelink");
-var button = document.getElementById("copybutton");
-button.onclick = function(e){
-  link.select();
-  if(document.execCommand('copy')){
-  this.innerHTML = "Link copied!";
-  this.className = "btn btn-success";
-  window.getSelection().removeAllRanges();
-  }
-}
-button.style.height = link.style.height = (link.scrollHeight-10)+'px';
-</script>
