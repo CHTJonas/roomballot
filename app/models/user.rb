@@ -20,7 +20,7 @@
 class User < ApplicationRecord
   belongs_to :ballot_group
 
-  # The user's year group category
+  # The user's year group category.
   enum year_group: [ :first_year, :second_year, :third_year, :third_year_abroad ]
 
   # The user's priority in the ballot.

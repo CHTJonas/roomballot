@@ -1,7 +1,7 @@
 <% content_for :title, @house.name %>
 <div class="alert alert-primary" role="alert">
-  <p class="mb-0"><%= link_to 'Edit', edit_house_path(@house) %></p>
-  <p class="mb-0"><%= link_to 'Destroy', house_path(@house), method: :delete, data: {confirm: 'Are you sure?'} %></p>
+  <p class="mb-0"><%= link_to 'Edit', edit_house_path(@house) if can? :update, @house %></p>
+  <p class="mb-0"><%= link_to 'Destroy', house_path(@house), method: :delete, data: {confirm: 'Are you sure?'} if can? :destroy, @house %></p>
 </div>
 <div class="row">
   <div class="col-md-4">

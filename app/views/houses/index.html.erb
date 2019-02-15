@@ -1,6 +1,6 @@
 <% content_for :title, "Houses in the Ballot" %>
 <div class="alert alert-primary" role="alert">
-  <%= link_to 'New house', new_house_path %>
+  <%= link_to 'New house', new_house_path if can? :create, House %>
 </div>
 <table class="table table-condensed table-bordered table-hover">
   <thead>
