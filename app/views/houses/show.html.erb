@@ -6,48 +6,18 @@
 <div class="row">
   <div class="col-md-4">
     <div id="gallery">
-      <div id="large">
-        <div class="thumbnail">
-          <a href="<%= @house.images.first.try(:url) %>" id="gallery-link">
-            <img id="gallery-large" src="<%= @house.images.first.try(:url) %>" style="width: 100%;"/>
-            <div id="gallery-caption" class="caption">
-              <p><%= @house.images.first.try(:description) %></p>
-            </div>
-          </a>
-        </div>
+      <div id="large" class="mb-4">
+        <%= link_to @house.images.first.try(:url), id: 'gallery-link' do %>
+          <%= image_tag @house.images.first.try(:url), id: 'gallery-img', style: 'width: 100%;' %>
+          <%= content_tag :p, @house.images.first.try(:description), id: 'gallery-caption' %>
+        <% end %>
       </div>
       <div id="smalls" class='ballot-smalls'>
         <% @house.images.each do |image| %>
-          <a href="<%= image.url %>">
-            <img class="ballot-gallery" src="<%= image.url %>" width=100 />
-          </a>
+          <%= image_tag image.url, width: 100, class: 'menu_icon' %>
         <% end %>
       </div>
     </div>
-    <script>
-      var galleryImg = document.getElementById("gallery-large");
-      var galleryLnk = document.getElementById("gallery-link");
-      var galleryDsc = document.getElementById("gallery-caption");
-      var smallImages = document.getElementById("smalls").getElementsByTagName("a");
-
-      var descs = [];
-      <% @house.images.each do |image| %>
-        descs.push("<p><%= image.description %></p>");
-      <% end %>
-
-      for(i = 0; i < smallImages.length; i++){
-        smallImages[i].ord = i;
-        smallImages[i].onclick = function(e){
-          var img = this.getElementsByTagName("img")[0]
-          galleryImg.src = img.src;
-          galleryImg.attributes['title'] = img.attributes['title'];
-          galleryLnk.attributes["href"].value = img.src;
-          galleryDsc.innerHTML = descs[this.ord];
-          e.preventDefault();
-          return false;
-        }
-      }
-    </script>
   </div>
   <div class="col-md-8">
     <div class="alert alert-info" role="alert">
@@ -66,5 +36,5 @@
   <%= render @house.reviews %>
 </blockquote>
 <div class="fixed-bottom bg-white">
-  <p class="container"><%= link_to '⇦ Back to Houses', :back %></p>
+  <p class="container"><%= link_to '⇦ Back to Houses', houses_path %></p>
 </div>

@@ -45,6 +45,9 @@ gem 'sidekiq', '~> 5.2', '>= 5.2.5'
 gem 'sidekiq-cron', '~> 0.6.3'
 gem 'rufus-scheduler', '~> 3.4.0' # needed as a bugfix for above
 
+# Variables in JS
+gem 'gon', '~> 6.2', '>= 6.2.1'
+
 group :deployment do
   gem 'redis', '~> 4.0'
   gem 'pg', '~> 1.1', '>= 1.1.4'

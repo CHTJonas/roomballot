@@ -36,6 +36,7 @@ class HousesController < ApplicationController
 
   def show
     @house = House.eager_load(:images, :reviews).find(params[:id])
+    gon.captions = @house.images.to_a.map(&:description)
     authorize! :read, @house
   end
 
