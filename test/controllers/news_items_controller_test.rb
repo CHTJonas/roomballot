@@ -2,6 +2,7 @@ require 'test_helper'
 
 class NewsItemsControllerTest < ActionDispatch::IntegrationTest
   setup do
+    sign_in_admin
     @news_item = news_items(:one)
   end
 
