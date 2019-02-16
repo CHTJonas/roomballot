@@ -1,0 +1,32 @@
+<%= form_with(model: @news_item, local: true) do |form| %>
+  <% if @news_item.errors.any? %>
+    <div class="alert alert-danger" role="alert">
+      <strong>Error:</strong>
+      <ul>
+        <% @news_item.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="form-group row">
+    <%= form.label :heading, class: 'col-sm-2 col-form-label' %><br>
+    <div class="col-sm-10">
+      <%= form.text_field :heading, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group row">
+    <%= form.label :content, class: 'col-sm-2 col-form-label' %><br>
+    <div class="col-sm-10">
+      <%= form.text_field :content, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group row mt-2">
+    <div class="col-sm-10">
+      <%= form.submit class: 'btn btn-primary' %>
+    </div>
+  </div>
+<% end %>
+<div class="fixed-bottom bg-white">
+  <p class="container"><%= link_to '⇦ Back to Houses', houses_path %></p>
+</div>

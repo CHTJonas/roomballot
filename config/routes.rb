@@ -12,6 +12,8 @@ Rails.application.routes.draw do
     get 'join', on: :member
   end
 
+  resources :news_items
+
   resources :users
 
   get '/auth/:provider/callback' => 'sessions#create'

@@ -12,6 +12,7 @@ class Ability
         can [:read, :join], BallotGroup           # Users can view/join any ballot group.
         can :crud, BallotGroup, user_id: user.id  # Owners of a ballot group can do anything with that group.
         can :read, House                          # Users can view but not edit houses.
+        can :read, NewsItem                       # Users can view all posted news items.
       end
     end
   end

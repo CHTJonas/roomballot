@@ -1,0 +1,9 @@
+<% content_for :title, @news_item.heading %>
+<div class="alert alert-primary" role="alert">
+  <p class="mb-0"><%= link_to 'Edit', edit_news_item_path(@news_item) if can? :update, @news_item %></p>
+  <p class="mb-0"><%= link_to 'Destroy', news_item_path(@news_item), method: :delete, data: {confirm: 'Are you sure?'} if can? :destroy, @news_item %></p>
+</div>
+<p><%= @news_item.content %></p>
+<div class="fixed-bottom bg-white">
+  <p class="container"><%= link_to '⇦ Back to News Items', news_items_path %></p>
+</div>
