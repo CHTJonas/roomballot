@@ -14,6 +14,8 @@ Rails.application.routes.draw do
 
   resources :news_items
 
+  resources :timetable_items
+
   resources :users
 
   get '/auth/:provider/callback' => 'sessions#create', as: :auth_callback

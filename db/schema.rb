@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 7) do
+ActiveRecord::Schema.define(version: 8) do
 
   create_table "application_settings", force: :cascade do |t|
     t.binary "shuffle_seed"
@@ -67,6 +67,14 @@ ActiveRecord::Schema.define(version: 7) do
     t.datetime "deleted_at"
     t.index ["deleted_at"], name: "index_reviews_on_deleted_at"
     t.index ["house_id"], name: "index_reviews_on_house_id"
+  end
+
+  create_table "timetable_items", force: :cascade do |t|
+    t.datetime "when"
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.datetime "deleted_at"
   end
 
   create_table "users", force: :cascade do |t|

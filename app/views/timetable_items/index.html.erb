@@ -1,0 +1,30 @@
+<% content_for :title, "Ballot Timetable" %>
+<div class="alert alert-primary" role="alert">
+  <%= link_to 'New Timetable Item', new_timetable_item_path if can? :create, NewsItem %>
+</div>
+<table class="table table-condensed table-bordered table-hover">
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Time</th>
+      <th>Event</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @timetable_items.each do |timetable_item| %>
+      <tr class="agenda">
+        <td class="agenda-date">
+          <div class="dayofmonth"><%= timetable_item.when.day %></div>
+          <div class="dayofweek"><%= timetable_item.when.strftime '%A' %></div>
+          <div class="shortdate text-muted"><%= timetable_item.when.strftime '%B' %></div>
+        </td>
+        <td class="agenda-time">
+          <%= timetable_item.when.strftime '%R' %>
+        </td>
+        <td class="agenda-events">
+          <div class="agenda-event"><%= timetable_item.description %></div>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
