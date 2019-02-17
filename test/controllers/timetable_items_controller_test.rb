@@ -2,6 +2,7 @@ require 'test_helper'
 
 class TimetableItemsControllerTest < ActionDispatch::IntegrationTest
   setup do
+    sign_in_admin
     @timetable_item = timetable_items(:one)
   end
 
