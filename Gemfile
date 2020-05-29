@@ -17,7 +17,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'high_voltage', '~> 3.0.0'
 
 # Pagination
-gem 'kaminari', '~> 1.1', '>= 1.1.1'
+gem 'kaminari', '~> 1.2'
 
 # Soft-delete records from the database
 gem 'paranoia', '~> 2.4', '>= 2.4.1'
